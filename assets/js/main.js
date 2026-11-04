@@ -51,7 +51,7 @@
     return { open: false, text: "Chiuso" };
   }
 
-  window.DS = { HOURS: HOURS, DAYS: DAYS, DAYS_S: DAYS_S, MONTHS: MONTHS, romeParts: romeParts, hm: hm, WA: WA, reduced: reduced };
+  window.DS = { openStatus: openStatus, HOURS: HOURS, DAYS: DAYS, DAYS_S: DAYS_S, MONTHS: MONTHS, romeParts: romeParts, hm: hm, WA: WA, reduced: reduced };
 
   /* ---------- Menu ---------- */
   var menuBtn = document.querySelector(".menu-btn");

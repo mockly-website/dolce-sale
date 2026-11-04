@@ -107,9 +107,8 @@ em { font-style: italic; }
 .link-arrow:active { transform: translateX(3px); }
 
 /* ---------- Striscia "sito dimostrativo" ---------- */
-.demo-bar { background: var(--caramel); color: var(--choc-900); padding: .1rem var(--gutter); text-align: center; font-size: 1rem; line-height: 1.35; position: relative; z-index: 61; }
-.demo-bar p { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; column-gap: .35rem; }
-.demo-bar a { font-weight: 700; display: inline-flex; align-items: center; min-height: 2.75rem; }
+.demo-bar { background: var(--caramel); color: var(--choc-900); padding: .45rem var(--gutter) 0; text-align: center; font-size: 1rem; line-height: 1.35; position: relative; z-index: 61; }
+.demo-bar a { font-weight: 700; display: inline-block; padding: .65rem .2rem; line-height: 1.1; }
 
 /* ---------- Intestazione ---------- */
 .site-header {
@@ -186,9 +185,9 @@ main { position: relative; }
 .hero__title em { color: var(--caramel); font-weight: 500; }
 .hero__title span { display: inline; }
 .hero__art { position: relative; order: 0; width: fit-content; }
-.hero__art { margin-block: 1rem .9rem; }
+.hero__art { margin-block: 1.35rem 1.1rem; }
 .hero__arch {
-  position: relative; height: min(37svh, 27rem); min-height: 13rem; aspect-ratio: 4 / 5;
+  position: relative; height: min(33svh, 27rem); min-height: 13rem; aspect-ratio: 4 / 5;
   border-radius: 999px 999px 16px 16px; overflow: hidden; background: var(--choc-700);
 }
 .hero__arch img { width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 70%; }
@@ -213,7 +212,8 @@ main { position: relative; }
 .forge__stage { padding: calc(var(--header-h) + 1.5rem) 0 2rem; display: grid; gap: 1.5rem; }
 .forge__head { display: grid; gap: .5rem; }
 .forge__head h2 { font-size: clamp(2rem, 8.5vw, 4.2rem); }
-.forge__cake { width: min(100%, 26rem); margin-inline: auto; }
+.forge__cake { width: min(100%, 26rem); margin-inline: auto; display: none; }
+.js .forge__cake { display: block; }
 .cake { width: 100%; height: auto; overflow: visible; }
 .forge__steps { display: grid; gap: 1.25rem; }
 .forge__step { display: grid; gap: .35rem; }
