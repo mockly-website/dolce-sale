@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ordina una torta — Dolce Sale, pasticceria (demo)</title>
+  <meta name="description" content="Componi la torta: porzioni, gusto, scritta e candelina. Prezzo di esempio e ritiro con 48 ore di preavviso. Sito dimostrativo di Mockly, l'attività è inventata.">
+  <meta name="theme-color" content="#24130d">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:url" content="https://mockly-website.github.io/dolce-sale/ordina.html">
+  <meta property="og:site_name" content="Dolce Sale">
+  <meta property="og:title" content="Ordina una torta — Dolce Sale, pasticceria (demo)">
+  <meta property="og:description" content="Componi la torta: porzioni, gusto, scritta e candelina. Prezzo di esempio e ritiro con 48 ore di preavviso. Sito dimostrativo di Mockly, l'attività è inventata.">
+  <meta property="og:image" content="https://mockly-website.github.io/dolce-sale/assets/img/anteprima-social.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Una torta a due piani su un'alzata, composta con il configuratore di Dolce Sale.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ordina una torta — Dolce Sale, pasticceria (demo)">
+  <meta name="twitter:description" content="Componi la torta: porzioni, gusto, scritta e candelina. Prezzo di esempio e ritiro con 48 ore di preavviso. Sito dimostrativo di Mockly, l'attività è inventata.">
+  <meta name="twitter:image" content="https://mockly-website.github.io/dolce-sale/assets/img/anteprima-social.jpg">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="page-ordina">
+<div class="demo-bar" role="note"><p>Sito dimostrativo di Mockly per una pasticceria: l'attività è inventata. <a href="https://wa.me/393517578080?text=Ciao%20Mockly!%20Ho%20visto%20il%20sito%20dimostrativo%20Dolce%20Sale%20e%20vorrei%20un%20sito%20cos%C3%AC%20per%20il%20mio%20lavoro.">Vuoi un sito così?</a></p></div>
+<a class="skip-link" href="#main">Vai al contenuto</a>
+<header class="site-header">
+  <div class="site-header__in">
+    <a class="brand" href="index.html" aria-label="Dolce Sale, pagina iniziale">Dolce <em>Sale</em></a>
+    <nav class="site-nav" aria-label="Principale"><a href="index.html">Home</a><a href="vetrina.html">La vetrina</a><a href="ordina.html" aria-current="page">Ordina una torta</a><a href="index.html#orari">Orari e dove</a></nav>
+    <a class="btn site-header__cta" href="ordina.html">Ordina una torta</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu"><span class="menu-btn__bars"></span></button>
+  </div>
+</header>
+<div class="scrim"></div>
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="menu__top">
+    <span class="brand">Dolce <em>Sale</em></span>
+    <button class="menu__close" type="button" aria-label="Chiudi il menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  </div>
+  <ul class="menu__list"><li><a href="index.html">Home</a></li><li><a href="vetrina.html">La vetrina</a></li><li><a href="ordina.html" aria-current="page">Ordina una torta</a></li><li><a href="index.html#orari">Orari e dove</a></li></ul>
+  <div class="menu__foot">
+    <p class="status" data-status>Orari di esempio</p>
+    <a class="btn" href="ordina.html">Ordina una torta</a>
+  </div>
+</div>
+
+<main id="main">
+  <section class="tier tier--choc page-head" style="padding-bottom:calc(var(--curve) + 1.5rem)" aria-labelledby="titolo">
+    <div class="wrap">
+      <h1 id="titolo" style="font-size:clamp(2.6rem,12vw,5.5rem)">Ordina una <em>torta</em></h1>
+      <p class="lead muted" style="margin-top:.75rem">Scegli, e la torta si compone qui sotto.</p>
+    </div>
+  </section>
+
+  <div class="studio-wrap">
+  <div class="studio">
+    <div class="studio__preview" aria-live="polite">
+      <svg class="cake" data-flavor="cioccolato" viewBox="0 90 400 350" role="img" aria-label="Anteprima della tua torta"></svg>
+      <p class="studio__label"><span data-pv-size>8 porzioni · 1 piano</span><span data-pv-flavor>Cioccolato</span></p>
+    </div>
+
+    <div class="studio__form tier tier--cream">
+      <div class="wrap" style="width:min(100% - var(--gutter)*2, 40rem)">
+        <p class="demo-note"><strong>È una dimostrazione.</strong> Nessun ordine arriva a una pasticceria vera: il riepilogo si apre in un messaggio WhatsApp a Mockly. I prezzi sono di esempio.</p>
+        <p class="nojs-note">Per comporre la torta serve JavaScript. <a href="https://wa.me/393517578080?text=Ciao%20Mockly!%20Ho%20visto%20il%20sito%20dimostrativo%20Dolce%20Sale%20e%20vorrei%20un%20sito%20cos%C3%AC%20per%20il%20mio%20lavoro.">Scrivici su WhatsApp</a> e ti mostriamo come funziona.</p>
+
+        <form id="ordina" class="js-only" novalidate>
+          <fieldset class="field">
+            <legend>1 · Quante porzioni?<small>Più porzioni, più piani.</small></legend>
+            <div class="stepper">
+              <button class="stepper__btn" type="button" data-step="-1" aria-label="Una porzione in meno">−</button>
+              <div class="stepper__val"><output id="porzioni-out" for="porzioni" data-porzioni-out>8</output><small data-piani-out>1 piano</small></div>
+              <button class="stepper__btn" type="button" data-step="1" aria-label="Una porzione in più">+</button>
+            </div>
+            <input class="range" type="range" id="porzioni" name="porzioni" min="6" max="40" step="1" value="8" aria-label="Numero di porzioni">
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>2 · Che gusto?</legend>
+            <div class="flavors"><div class="flavor"><input type="radio" name="gusto" id="g-cioccolato" value="cioccolato" checked><label for="g-cioccolato"><i style="background:#3e2013" aria-hidden="true"></i>Cioccolato</label></div><div class="flavor"><input type="radio" name="gusto" id="g-pistacchio" value="pistacchio"><label for="g-pistacchio"><i style="background:#a9bb68" aria-hidden="true"></i>Pistacchio</label></div><div class="flavor"><input type="radio" name="gusto" id="g-limone" value="limone"><label for="g-limone"><i style="background:#f0cf6e" aria-hidden="true"></i>Limone e panna</label></div><div class="flavor"><input type="radio" name="gusto" id="g-fragole" value="fragole"><label for="g-fragole"><i style="background:#d3283b" aria-hidden="true"></i>Fragole e panna</label></div></div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>3 · Scritta e candelina<small>La scritta va su una targhetta di cioccolato bianco.</small></legend>
+            <label for="scritta" class="visually-hidden">Scritta sulla targhetta</label>
+            <input class="text-input" type="text" id="scritta" name="scritta" maxlength="28" autocomplete="off" placeholder="Per esempio: Auguri Anna" aria-describedby="scritta-hint scritta-err">
+            <div class="hint" id="scritta-hint"><span>Facoltativa</span><span data-count>0/28</span></div>
+            <p class="error" id="scritta-err" role="alert"></p>
+            <label class="switch" style="margin-top:.5rem"><input type="checkbox" id="candelina" name="candelina" checked><span class="switch__track" aria-hidden="true"></span>Con la candelina</label>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>4 · Quando la ritiri?<small>Servono 48 ore dall'ordine.</small></legend>
+            <p class="pick-info" data-pick-info>Calcolo la prima data utile…</p>
+            <div class="days" id="days" role="radiogroup" aria-label="Giorno di ritiro"></div>
+            <button class="btn btn--ghost days-more" type="button" data-days-more hidden>Mostra altre date</button>
+            <label for="ora" class="visually-hidden">Ora di ritiro</label>
+            <select class="select" id="ora" name="ora" aria-describedby="ritiro-err" disabled><option value="">Prima scegli il giorno</option></select>
+            <p class="error" id="ritiro-err" role="alert"></p>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>5 · Come ti chiami?</legend>
+            <label for="nome" class="visually-hidden">Il tuo nome</label>
+            <input class="text-input" type="text" id="nome" name="nome" autocomplete="given-name" aria-describedby="nome-err" placeholder="Nome">
+            <p class="error" id="nome-err" role="alert"></p>
+            <label for="note" class="visually-hidden">Allergie o richieste</label>
+            <textarea class="text-input" id="note" name="note" rows="3" maxlength="200" style="margin-top:.75rem" placeholder="Allergie o richieste (facoltativo)"></textarea>
+          </fieldset>
+
+          <div class="summary" id="summary" tabindex="-1" hidden>
+            <h2>Controlla il <em>riepilogo</em></h2>
+            <dl data-summary></dl>
+            <div class="summary__actions">
+              <a class="btn" id="wa-send" href="https://wa.me/393517578080" target="_blank" rel="noopener">Invia il riepilogo su WhatsApp</a>
+              <button class="btn btn--ghost" type="button" data-edit>Modifica la torta</button>
+            </div>
+            <p class="demo-note"><strong>Dimostrazione.</strong> Il messaggio va a Mockly, lo studio che ha costruito questo sito, non a una pasticceria. Vuoi un sito così per il tuo lavoro? Scrivici lì.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+</main>
+
+<div class="pricebar" data-pricebar>
+  <p class="pricebar__sum"><small>Totale di esempio</small><strong data-price>€ 0,00</strong></p>
+  <button class="btn" type="submit" form="ordina" data-submit>Controlla l'ordine</button>
+</div>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="site-footer__demo"><strong>Sito dimostrativo realizzato da Mockly. L'attività è inventata.</strong><br>Vuoi un sito così per il tuo lavoro? <a href="https://wa.me/393517578080?text=Ciao%20Mockly!%20Ho%20visto%20il%20sito%20dimostrativo%20Dolce%20Sale%20e%20vorrei%20un%20sito%20cos%C3%AC%20per%20il%20mio%20lavoro.">Scrivici su WhatsApp</a></p>
+    <nav class="site-footer__nav" aria-label="Piè di pagina"><a href="index.html">Home</a><a href="vetrina.html">La vetrina</a><a href="ordina.html">Ordina una torta</a><a href="index.html#orari">Orari e dove</a><a href="crediti.html">Crediti</a></nav>
+    <p class="note-small">Indirizzo, prezzi e orari sono di esempio. Questo sito non usa cookie né strumenti di statistica.</p>
+  </div>
+</footer>
+<script src="assets/js/cake.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/ordina.js" defer></script></body>
+</html>

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La vetrina — Dolce Sale, pasticceria (demo)</title>
+  <meta name="description" content="Sette dolci di esempio: torte, monoporzioni e crostate. Sito dimostrativo di Mockly, l'attività è inventata.">
+  <meta name="theme-color" content="#24130d">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:url" content="https://mockly-website.github.io/dolce-sale/vetrina.html">
+  <meta property="og:site_name" content="Dolce Sale">
+  <meta property="og:title" content="La vetrina — Dolce Sale, pasticceria (demo)">
+  <meta property="og:description" content="Sette dolci di esempio: torte, monoporzioni e crostate. Sito dimostrativo di Mockly, l'attività è inventata.">
+  <meta property="og:image" content="https://mockly-website.github.io/dolce-sale/assets/img/anteprima-social.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Una vetrina di pasticceria al buio, con macaron e dolci illuminati.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="La vetrina — Dolce Sale, pasticceria (demo)">
+  <meta name="twitter:description" content="Sette dolci di esempio: torte, monoporzioni e crostate. Sito dimostrativo di Mockly, l'attività è inventata.">
+  <meta name="twitter:image" content="https://mockly-website.github.io/dolce-sale/assets/img/anteprima-social.jpg">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="demo-bar" role="note"><p>Sito dimostrativo di Mockly per una pasticceria: l'attività è inventata. <a href="https://wa.me/393517578080?text=Ciao%20Mockly!%20Ho%20visto%20il%20sito%20dimostrativo%20Dolce%20Sale%20e%20vorrei%20un%20sito%20cos%C3%AC%20per%20il%20mio%20lavoro.">Vuoi un sito così?</a></p></div>
+<a class="skip-link" href="#main">Vai al contenuto</a>
+<header class="site-header">
+  <div class="site-header__in">
+    <a class="brand" href="index.html" aria-label="Dolce Sale, pagina iniziale">Dolce <em>Sale</em></a>
+    <nav class="site-nav" aria-label="Principale"><a href="index.html">Home</a><a href="vetrina.html" aria-current="page">La vetrina</a><a href="ordina.html">Ordina una torta</a><a href="index.html#orari">Orari e dove</a></nav>
+    <a class="btn site-header__cta" href="ordina.html">Ordina una torta</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu"><span class="menu-btn__bars"></span></button>
+  </div>
+</header>
+<div class="scrim"></div>
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="menu__top">
+    <span class="brand">Dolce <em>Sale</em></span>
+    <button class="menu__close" type="button" aria-label="Chiudi il menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  </div>
+  <ul class="menu__list"><li><a href="index.html">Home</a></li><li><a href="vetrina.html" aria-current="page">La vetrina</a></li><li><a href="ordina.html">Ordina una torta</a></li><li><a href="index.html#orari">Orari e dove</a></li></ul>
+  <div class="menu__foot">
+    <p class="status" data-status>Orari di esempio</p>
+    <a class="btn" href="ordina.html">Ordina una torta</a>
+  </div>
+</div>
+
+<main id="main">
+  <section class="tier tier--choc page-head" aria-labelledby="titolo">
+    <div class="wrap page-head__grid">
+      <div>
+        <h1 id="titolo">La <em>vetrina</em></h1>
+        <p class="lead muted" style="margin-top:1rem">Sette dolci, come stasera li vedresti dal vetro. Prezzi di esempio.</p>
+      </div>
+      <div class="page-head__band"><img src="assets/img/vetrina-1100.webp" srcset="assets/img/vetrina-640.webp 640w, assets/img/vetrina-1100.webp 1100w" sizes="(min-width: 64em) 40rem, 90vw" width="1100" height="542" alt="Una vetrina di pasticceria al buio, con macaron e pasticcini illuminati sui ripiani."></div>
+    </div>
+  </section>
+
+  <div class="filters"><div class="filters__in" role="group" aria-label="Filtra i dolci">
+    <button class="chip" type="button" data-filter="tutti" aria-pressed="true">Tutti</button>
+    <button class="chip" type="button" data-filter="torte" aria-pressed="false">Torte</button>
+    <button class="chip" type="button" data-filter="monoporzioni" aria-pressed="false">Monoporzioni</button>
+    <button class="chip" type="button" data-filter="crostate" aria-pressed="false">Crostate</button>
+  </div></div>
+
+  <section class="tier tier--choc showcase" aria-label="I dolci">
+    <div class="wrap">
+      <ul class="goods">
+      <li class="good rv" id="torta-cioccolato" data-cat="torte" style="--d:0ms">
+        <div class="good__arch"><img src="assets/img/cioccolato-640.webp" srcset="assets/img/cioccolato-400.webp 400w, assets/img/cioccolato-640.webp 640w" sizes="(min-width: 40em) 22rem, 46vw" width="640" height="932" alt="Torta al cioccolato glassata, in sezione: strati di pan di spagna e mousse." loading="lazy" decoding="async"></div>
+        <span class="good__plate" aria-hidden="true"></span>
+        <h2 class="good__name display" style="font-size:1.3rem;line-height:1.15">Torta al cioccolato</h2>
+        <p class="good__tag">Pan di spagna al cacao e mousse</p>
+        <p class="good__price">da € 28 · 8 porzioni <span class="visually-hidden">(prezzo di esempio)</span></p>
+        <button class="good__more" type="button" aria-expanded="false" aria-controls="in-torta-cioccolato"><span class="plus" aria-hidden="true">+</span><span class="t">Cosa c'è dentro</span></button>
+        <div class="good__inside" id="in-torta-cioccolato"><div><p>Pan di spagna al cacao, bagna al caffè, mousse al cioccolato fondente e glassa a specchio. Va tenuta in frigo fino a mezz'ora prima di servirla.</p></div></div>
+        <div class="good__actions"><a class="btn" href="ordina.html?gusto=cioccolato">Ordina così</a></div>
+      </li>
+      <li class="good rv" id="torta-pistacchio" data-cat="torte" style="--d:70ms">
+        <div class="good__arch"><img src="assets/img/torta-pistacchio-640.webp" srcset="assets/img/torta-pistacchio-400.webp 400w, assets/img/torta-pistacchio-640.webp 640w" sizes="(min-width: 40em) 22rem, 46vw" width="640" height="835" alt="Torta al pistacchio con crema bianca e granella, vista dall'alto, con due fette servite." loading="lazy" decoding="async"></div>
+        <span class="good__plate" aria-hidden="true"></span>
+        <h2 class="good__name display" style="font-size:1.3rem;line-height:1.15">Torta al pistacchio</h2>
+        <p class="good__tag">Crema chantilly e granella</p>
+        <p class="good__price">da € 30 · 8 porzioni <span class="visually-hidden">(prezzo di esempio)</span></p>
+        <button class="good__more" type="button" aria-expanded="false" aria-controls="in-torta-pistacchio"><span class="plus" aria-hidden="true">+</span><span class="t">Cosa c'è dentro</span></button>
+        <div class="good__inside" id="in-torta-pistacchio"><div><p>Pan di spagna al pistacchio, bagna al latte, crema chantilly e granella di pistacchio. Le fette si tagliano con il coltello caldo.</p></div></div>
+        <div class="good__actions"><a class="btn" href="ordina.html?gusto=pistacchio">Ordina così</a></div>
+      </li>
+      <li class="good rv" id="mousse-pistacchio" data-cat="monoporzioni" style="--d:140ms">
+        <div class="good__arch"><img src="assets/img/pistacchio-640.webp" srcset="assets/img/pistacchio-400.webp 400w, assets/img/pistacchio-640.webp 640w" sizes="(min-width: 40em) 22rem, 46vw" width="640" height="854" alt="Monoporzione con mousse al cioccolato, crema di pistacchio e granella, su un piatto bianco." loading="lazy" decoding="async"></div>
+        <span class="good__plate" aria-hidden="true"></span>
+        <h2 class="good__name display" style="font-size:1.3rem;line-height:1.15">Mousse al pistacchio</h2>
+        <p class="good__tag">Cioccolato al latte e granella</p>
+        <p class="good__price">€ 4,50 <span class="visually-hidden">(prezzo di esempio)</span></p>
+        <button class="good__more" type="button" aria-expanded="false" aria-controls="in-mousse-pistacchio"><span class="plus" aria-hidden="true">+</span><span class="t">Cosa c'è dentro</span></button>
+        <div class="good__inside" id="in-mousse-pistacchio"><div><p>Base croccante, mousse al cioccolato al latte, crema di pistacchio e granella. Si serve fredda, si scioglie in bocca.</p></div></div>
+        <div class="good__actions"><a class="btn btn--ghost" data-wa="Vorrei prenotare: Mousse al pistacchio (prova)." href="https://wa.me/393517578080">Prenota su WhatsApp</a></div>
+      </li>
+      <li class="good rv" id="tortino-caramello" data-cat="monoporzioni" style="--d:0ms">
+        <div class="good__arch"><img src="assets/img/caramello-640.webp" srcset="assets/img/caramello-400.webp 400w, assets/img/caramello-640.webp 640w" sizes="(min-width: 40em) 22rem, 46vw" width="640" height="842" alt="Tortino al caramello con una fetta d'arancia candita, su un piatto, sopra un tavolo di legno." loading="lazy" decoding="async"></div>
+        <span class="good__plate" aria-hidden="true"></span>
+        <h2 class="good__name display" style="font-size:1.3rem;line-height:1.15">Tortino al caramello</h2>
+        <p class="good__tag">Sablé, crema e arancia candita</p>
+        <p class="good__price">€ 4,20 <span class="visually-hidden">(prezzo di esempio)</span></p>
+        <button class="good__more" type="button" aria-expanded="false" aria-controls="in-tortino-caramello"><span class="plus" aria-hidden="true">+</span><span class="t">Cosa c'è dentro</span></button>
+        <div class="good__inside" id="in-tortino-caramello"><div><p>Biscotto sablé, crema al formaggio, caramello salato e una fetta d'arancia candita.</p></div></div>
+        <div class="good__actions"><a class="btn btn--ghost" data-wa="Vorrei prenotare: Tortino al caramello (prova)." href="https://wa.me/393517578080">Prenota su WhatsApp</a></div>
+      </li>
+      <li class="good rv" id="tortine-cioccolato" data-cat="crostate" style="--d:70ms">
+        <div class="good__arch"><img src="assets/img/tortine-640.webp" srcset="assets/img/tortine-400.webp 400w, assets/img/tortine-640.webp 640w" sizes="(min-width: 40em) 22rem, 46vw" width="640" height="731" alt="Una mano prende una tortina al cioccolato con una fragola e zucchero a velo, su un tagliere." loading="lazy" decoding="async"></div>
+        <span class="good__plate" aria-hidden="true"></span>
+        <h2 class="good__name display" style="font-size:1.3rem;line-height:1.15">Tortine al cioccolato</h2>
+        <p class="good__tag">Frolla al cacao e fragole</p>
+        <p class="good__price">€ 3,80 <span class="visually-hidden">(prezzo di esempio)</span></p>
+        <button class="good__more" type="button" aria-expanded="false" aria-controls="in-tortine-cioccolato"><span class="plus" aria-hidden="true">+</span><span class="t">Cosa c'è dentro</span></button>
+        <div class="good__inside" id="in-tortine-cioccolato"><div><p>Frolla al cacao, ganache fondente, una fragola e zucchero a velo. La frolla si prepara la sera prima e riposa in frigo.</p></div></div>
+        <div class="good__actions"><a class="btn btn--ghost" data-wa="Vorrei prenotare: Tortine al cioccolato (prova)." href="https://wa.me/393517578080">Prenota su WhatsApp</a></div>
+      </li>
+      <li class="good rv" id="crostata-fragole" data-cat="crostate" style="--d:140ms">
+        <div class="good__arch"><img src="assets/img/fragole-640.webp" srcset="assets/img/fragole-400.webp 400w, assets/img/fragole-640.webp 640w" sizes="(min-width: 40em) 22rem, 46vw" width="640" height="854" alt="Crostatina con le fragole tagliate a raggiera, due fragole intere accanto, su un tagliere di legno." loading="lazy" decoding="async"></div>
+        <span class="good__plate" aria-hidden="true"></span>
+        <h2 class="good__name display" style="font-size:1.3rem;line-height:1.15">Crostatina alle fragole</h2>
+        <p class="good__tag">Crema pasticcera e raggiera</p>
+        <p class="good__price">€ 3,50 <span class="visually-hidden">(prezzo di esempio)</span></p>
+        <button class="good__more" type="button" aria-expanded="false" aria-controls="in-crostata-fragole"><span class="plus" aria-hidden="true">+</span><span class="t">Cosa c'è dentro</span></button>
+        <div class="good__inside" id="in-crostata-fragole"><div><p>Frolla, crema pasticcera cotta al momento e fragole tagliate a raggiera, una a una.</p></div></div>
+        <div class="good__actions"><a class="btn btn--ghost" data-wa="Vorrei prenotare: Crostatina alle fragole (prova)." href="https://wa.me/393517578080">Prenota su WhatsApp</a></div>
+      </li>
+      <li class="good rv" id="tartelletta-banana" data-cat="crostate" style="--d:0ms">
+        <div class="good__arch"><img src="assets/img/banana-640.webp" srcset="assets/img/banana-400.webp 400w, assets/img/banana-640.webp 640w" sizes="(min-width: 40em) 22rem, 46vw" width="640" height="853" alt="Tartelletta con banana e arancia rossa su un piano scuro cosparso di farina." loading="lazy" decoding="async"></div>
+        <span class="good__plate" aria-hidden="true"></span>
+        <h2 class="good__name display" style="font-size:1.3rem;line-height:1.15">Tartelletta banana e arancia</h2>
+        <p class="good__tag">Crema e frutta fresca</p>
+        <p class="good__price">€ 3,50 <span class="visually-hidden">(prezzo di esempio)</span></p>
+        <button class="good__more" type="button" aria-expanded="false" aria-controls="in-tartelletta-banana"><span class="plus" aria-hidden="true">+</span><span class="t">Cosa c'è dentro</span></button>
+        <div class="good__inside" id="in-tartelletta-banana"><div><p>Frolla, crema pasticcera, banana e arancia rossa a spicchi. Si compone appena prima di metterla in vetrina.</p></div></div>
+        <div class="good__actions"><a class="btn btn--ghost" data-wa="Vorrei prenotare: Tartelletta banana e arancia (prova)." href="https://wa.me/393517578080">Prenota su WhatsApp</a></div>
+      </li>
+      </ul>
+      <p class="empty" data-empty hidden>Questa nicchia è vuota. Prova un altro filtro.</p>
+    </div>
+  </section>
+
+  <section class="tier tier--cream" aria-labelledby="fine-titolo">
+    <div class="wrap" style="display:grid;gap:1.5rem;justify-items:start">
+      <h2 id="fine-titolo" class="rv">Non trovi la torta che cerchi? <em>La componi tu.</em></h2>
+      <p class="lead rv" style="--d:80ms">Scegli porzioni, gusto e scritta: la torta si disegna mentre decidi.</p>
+      <a class="btn btn--dark rv" href="ordina.html">Ordina una torta</a>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="site-footer__demo"><strong>Sito dimostrativo realizzato da Mockly. L'attività è inventata.</strong><br>Vuoi un sito così per il tuo lavoro? <a href="https://wa.me/393517578080?text=Ciao%20Mockly!%20Ho%20visto%20il%20sito%20dimostrativo%20Dolce%20Sale%20e%20vorrei%20un%20sito%20cos%C3%AC%20per%20il%20mio%20lavoro.">Scrivici su WhatsApp</a></p>
+    <nav class="site-footer__nav" aria-label="Piè di pagina"><a href="index.html">Home</a><a href="vetrina.html">La vetrina</a><a href="ordina.html">Ordina una torta</a><a href="index.html#orari">Orari e dove</a><a href="crediti.html">Crediti</a></nav>
+    <p class="note-small">Indirizzo, prezzi e orari sono di esempio. Questo sito non usa cookie né strumenti di statistica.</p>
+  </div>
+</footer>
+<div class="dock dock--default"><a class="btn" href="ordina.html">Ordina una torta</a></div>
+<script src="assets/js/cake.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
