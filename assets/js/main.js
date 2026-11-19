@@ -1,12 +1,11 @@
-/* Dolce Sale — script comune. JavaScript puro, nessuna libreria. */
+/* Dolce Sale — script comune. JavaScript semplice, nessuna libreria. */
 (function () {
   "use strict";
 
-  var doc = document.documentElement;
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var WA = "https://wa.me/393517578080";
 
-  /* ---------- Orari di esempio (0 = domenica) ---------- */
+  /* ---------- Orari di esempio, in minuti dalla mezzanotte (0 = domenica) ---------- */
   var HOURS = {
     0: [[480, 780]],
     1: [],
@@ -53,67 +52,75 @@
 
   window.DS = { openStatus: openStatus, HOURS: HOURS, DAYS: DAYS, DAYS_S: DAYS_S, MONTHS: MONTHS, romeParts: romeParts, hm: hm, WA: WA, reduced: reduced };
 
-  /* ---------- Menu ---------- */
+  /* ---------- Menu da telefono ---------- */
   var menuBtn = document.querySelector(".menu-btn");
   var menu = document.getElementById("menu");
-  var scrim = document.querySelector(".scrim");
-  var lastFocus = null;
-
   function setMenu(open) {
-    if (!menu) { return; }
-    doc.classList.toggle("menu-open", open);
+    menu.hidden = !open;
     menuBtn.setAttribute("aria-expanded", String(open));
-    menu.setAttribute("aria-hidden", String(!open));
-    if (open) {
-      lastFocus = document.activeElement;
-      menu.removeAttribute("inert");
-      var f = menu.querySelector(".menu__close");
-      window.setTimeout(function () { f && f.focus(); }, 30);
-    } else {
-      menu.setAttribute("inert", "");
-      if (lastFocus && lastFocus.focus) { lastFocus.focus(); }
-    }
   }
   if (menuBtn && menu) {
-    menu.setAttribute("inert", "");
-    menuBtn.addEventListener("click", function () { setMenu(true); });
-    menu.querySelector(".menu__close").addEventListener("click", function () { setMenu(false); });
-    scrim.addEventListener("click", function () { setMenu(false); });
+    menuBtn.addEventListener("click", function () { setMenu(menu.hidden); });
     menu.addEventListener("click", function (e) { if (e.target.closest("a")) { setMenu(false); } });
     document.addEventListener("keydown", function (e) {
-      if (!doc.classList.contains("menu-open")) { return; }
-      if (e.key === "Escape") { setMenu(false); return; }
-      if (e.key === "Tab") {
-        var els = menu.querySelectorAll("a[href], button");
-        var first = els[0], last = els[els.length - 1];
-        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-      }
+      if (e.key === "Escape" && !menu.hidden) { setMenu(false); menuBtn.focus(); }
     });
-    window.matchMedia("(min-width: 64em)").addEventListener("change", function (e) { if (e.matches) { setMenu(false); } });
+    document.addEventListener("click", function (e) {
+      if (!menu.hidden && !e.target.closest(".site-header")) { setMenu(false); }
+    });
   }
 
-  /* ---------- Intestazione trasparente solo sopra la prima schermata ---------- */
-  var header = document.querySelector(".site-header");
-  if (header && header.hasAttribute("data-top")) {
-    var onScroll = function () { header.classList.toggle("is-top", window.scrollY < 24); };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-  }
-
-  /* ---------- "Aperto ora" e riga di oggi ---------- */
-  function paintStatus() {
+  /* ---------- "Aperto ora", riga di oggi e ora del banco ---------- */
+  function paint() {
     var s = openStatus();
     document.querySelectorAll("[data-status]").forEach(function (el) {
       el.textContent = s.text;
       el.classList.toggle("is-open", s.open);
       el.classList.toggle("is-closed", !s.open);
     });
-    var wd = romeParts(new Date()).wd;
-    document.querySelectorAll("[data-wd]").forEach(function (el) { el.classList.toggle("is-today", +el.getAttribute("data-wd") === wd); });
+    var p = romeParts(new Date());
+    document.querySelectorAll("[data-wd]").forEach(function (el) { el.classList.toggle("is-today", +el.getAttribute("data-wd") === p.wd); });
+
+    var day = document.querySelector("[data-day]");
+    if (day) {
+      var t = p.h * 60 + p.min, rows = day.querySelectorAll("[data-from]"), now = null;
+      var openToday = HOURS[p.wd].length > 0;
+      rows.forEach(function (r) { if (openToday && t >= +r.getAttribute("data-from")) { now = r; } });
+      if (openToday && p.wd === 0 && t >= 780) { now = rows[rows.length - 1]; }
+      rows.forEach(function (r) { r.classList.toggle("is-now", r === now); });
+    }
   }
-  paintStatus();
-  window.setInterval(paintStatus, 60000);
+  paint();
+  window.setInterval(paint, 60000);
+
+  /* ---------- Home: dolce o sale (solo da telefono) ---------- */
+  var tabs = document.querySelector(".switch-tabs");
+  if (tabs) {
+    var btns = [].slice.call(tabs.querySelectorAll('[role="tab"]'));
+    var select = function (side, focus) {
+      btns.forEach(function (b) {
+        var on = b.id === "tab-" + side;
+        b.setAttribute("aria-selected", String(on));
+        b.tabIndex = on ? 0 : -1;
+        document.getElementById(b.getAttribute("aria-controls")).hidden = !on;
+        if (on && focus) { b.focus(); }
+      });
+    };
+    tabs.hidden = false;
+    select("dolce");
+    btns.forEach(function (b, i) {
+      b.addEventListener("click", function () { select(b.id.slice(4)); });
+      b.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+          e.preventDefault();
+          select(btns[(i + 1) % btns.length].id.slice(4), true);
+        }
+      });
+    });
+    document.querySelectorAll("[data-side]").forEach(function (a) {
+      a.addEventListener("click", function () { select(a.getAttribute("data-side")); });
+    });
+  }
 
   /* ---------- Comparse allo scroll ---------- */
   var rv = document.querySelectorAll(".rv");
@@ -123,104 +130,38 @@
     } else {
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); } });
-      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+      }, { rootMargin: "0px 0px -6% 0px", threshold: 0.05 });
       rv.forEach(function (el) { io.observe(el); });
     }
   }
 
-  /* ---------- La torta che si compone (home) ---------- */
-  var forge = document.querySelector("[data-forge]");
-  if (forge && window.DolceCake) {
-    var svg = forge.querySelector("svg.cake");
-    DolceCake.render(svg, { tiers: 2, flavor: "cioccolato", text: "Auguri", candle: true });
-    if (!reduced) {
-      forge.classList.add("is-live");
-      var layers = [].slice.call(svg.querySelectorAll("[data-layer]"));
-      var steps = [].slice.call(forge.querySelectorAll("[data-step]"));
-      var dots = [].slice.call(forge.querySelectorAll("[data-dot]"));
-      var ticking = false, lastActive = -1;
-      var clamp = function (v) { return Math.max(0, Math.min(1, v)); };
-      var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
-
-      var update = function () {
-        ticking = false;
-        var r = forge.getBoundingClientRect(), vh = window.innerHeight;
-        var total = r.height - vh, lead = vh * 0.35;
-        var p = clamp((lead - r.top) / (total + lead));
-        var t = p * 4.2;
-        layers.forEach(function (g, i) { g.style.setProperty("--p", ease(clamp(t - i)).toFixed(3)); });
-        var active = Math.max(0, Math.min(3, Math.floor(t)));
-        if (active !== lastActive) {
-          lastActive = active;
-          steps.forEach(function (s, i) { s.classList.toggle("is-active", i === active); });
-          dots.forEach(function (d, i) {
-            d.classList.toggle("is-done", i <= active);
-            if (i === active) { d.setAttribute("aria-current", "step"); } else { d.removeAttribute("aria-current"); }
-          });
-        }
-        svg.classList.toggle("is-lit", t > 3.6);
-      };
-      var request = function () { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } };
-      window.addEventListener("scroll", request, { passive: true });
-      window.addEventListener("resize", request);
-      update();
-
-      dots.forEach(function (d, i) {
-        d.addEventListener("click", function () {
-          var r = forge.getBoundingClientRect(), vh = window.innerHeight;
-          var total = r.height - vh, lead = vh * 0.35;
-          var p = (i + 0.7) / 4.2;
-          var targetY = window.scrollY + r.top + (p * (total + lead)) - lead;
-          window.scrollTo({ top: targetY, behavior: "smooth" });
-        });
-      });
-    }
-  }
-
-  /* ---------- Candelina del finale ---------- */
-  var candle = document.querySelector("[data-candle]");
-  if (candle) {
-    var hint = document.querySelector("[data-candle-hint]");
-    var after = document.querySelector("[data-candle-after]");
-    candle.addEventListener("click", function () {
-      var off = candle.getAttribute("aria-pressed") !== "true";
-      candle.setAttribute("aria-pressed", String(off));
-      if (hint) { hint.textContent = off ? "Desiderio espresso. Ora ordina la torta." : "Si è riaccesa. Tocca ancora."; }
-      if (after) { after.classList.toggle("is-on", off); }
-    });
-  }
-
-  /* ---------- Vetrina: filtri e "cosa c'è dentro" ---------- */
-  var chips = document.querySelectorAll("[data-filter]");
-  if (chips.length) {
+  /* ---------- Banco: filtri ---------- */
+  var filters = document.querySelectorAll("[data-filter]");
+  if (filters.length) {
     var goods = [].slice.call(document.querySelectorAll("[data-cat]"));
     var empty = document.querySelector("[data-empty]");
     var apply = function (cat) {
       var shown = 0;
-      chips.forEach(function (c) { c.setAttribute("aria-pressed", String(c.getAttribute("data-filter") === cat)); });
+      filters.forEach(function (c) { c.setAttribute("aria-pressed", String(c.getAttribute("data-filter") === cat)); });
       goods.forEach(function (g) {
         var ok = cat === "tutti" || g.getAttribute("data-cat") === cat;
         if (ok) { shown++; g.hidden = false; window.requestAnimationFrame(function () { g.classList.remove("is-out"); }); }
         else {
           g.classList.add("is-out");
-          window.setTimeout(function () { if (g.classList.contains("is-out")) { g.hidden = true; } }, reduced ? 0 : 230);
+          window.setTimeout(function () { if (g.classList.contains("is-out")) { g.hidden = true; } }, reduced ? 0 : 200);
         }
       });
       if (empty) { empty.hidden = shown !== 0; }
     };
-    chips.forEach(function (c) { c.addEventListener("click", function () { apply(c.getAttribute("data-filter")); }); });
+    filters.forEach(function (c) { c.addEventListener("click", function () { apply(c.getAttribute("data-filter")); }); });
     if (location.hash) {
       var target = document.getElementById(location.hash.slice(1));
-      if (target) { window.setTimeout(function () { target.scrollIntoView({ block: "center" }); }, 60); }
+      if (target && target.tagName === "DETAILS") { target.open = true; }
+      if (target && target.querySelector("details")) { target.querySelector("details").open = true; }
     }
   }
-  document.querySelectorAll(".good__more").forEach(function (b) {
-    b.addEventListener("click", function () {
-      var open = b.getAttribute("aria-expanded") !== "true";
-      b.setAttribute("aria-expanded", String(open));
-      b.querySelector("span.t").textContent = open ? "Chiudi" : "Cosa c'è dentro";
-    });
-  });
+
+  /* ---------- Link WhatsApp con messaggio ---------- */
   document.querySelectorAll("[data-wa]").forEach(function (a) {
     var msg = "Ciao Mockly! Ho provato il sito dimostrativo Dolce Sale (l'attività è inventata). " + a.getAttribute("data-wa");
     a.setAttribute("href", WA + "?text=" + encodeURIComponent(msg));

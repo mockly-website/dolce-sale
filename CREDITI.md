@@ -27,18 +27,18 @@ raggiungibile dallo strumento di lavoro). La licenza Pexels non richiede l'attri
 completare la tabella basta aprire i tre link.
 La foto della vetrina è ritagliata in modo da togliere dal bordo un cartellino con una scritta.
 
-Anteprima social (`assets/img/anteprima-social.jpg`): foto ID 291528 con composizione tipografica
+Anteprima social (`assets/img/anteprima-social.jpg`): foto ID 8253100 con composizione tipografica
 realizzata per questa demo.
 
 ## Caratteri
 
-I file WOFF2 sono ospitati in locale in `assets/fonts/` (sottoinsieme latino; Fraunces è fissato a un
-solo valore di "opsz" e "SOFT" per alleggerirlo).
+I file WOFF2 sono ospitati in locale in `assets/fonts/` (sottoinsieme latino, presi da Google Fonts).
 
-- **Fraunces** — © The Fraunces Project Authors, SIL Open Font License 1.1.
-- **Instrument Sans** — © The Instrument Sans Project Authors, SIL Open Font License 1.1.
+- **Libre Caslon Display** e **Libre Caslon Text** (corsivo) — © Impallari Type, SIL Open Font License 1.1.
+- **Public Sans** — © USWDS, SIL Open Font License 1.1.
+- **Azeret Mono** — © The Azeret Project Authors, SIL Open Font License 1.1.
 
 ## Il resto
 
-Disegni (torta, candelina, icone) e codice sono scritti per questa demo. Nessuna libreria esterna,
+Disegni (torta, icone) e codice sono scritti per questa demo. Nessuna libreria esterna,
 nessun cookie, nessuno strumento di statistica.
